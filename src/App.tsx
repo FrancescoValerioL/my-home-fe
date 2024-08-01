@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import { Button, Dropdown, Flex, Layout, MenuProps, theme } from "antd";
-import {
-	DownOutlined,
-	TranslationOutlined,
-} from "@ant-design/icons";
+import { Button, Dropdown, Flex, Layout, MenuProps, theme, Typography } from "antd";
+import { DownOutlined, TranslationOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import SideMenu from "./components/SideMenu";
 import { Content, Header } from "antd/es/layout/layout";
@@ -15,40 +12,13 @@ import DIY from "./pages/DIY";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import ToDoList from "./pages/ToDoList";
-
+import CalendarPage from "./pages/CalendarPage";
 
 const App = () => {
+	const { Text } = Typography;
 	const { t, i18n } = useTranslation();
 	const { value } = useMyContext();
-	const [componentToRender, setComponentToRender] = useState<any>()
-
-	useEffect(() => {
-		switch (value) {
-			case PagesEnum.DIY:
-				setComponentToRender(<DIY />)
-				break;
-			case PagesEnum.HOME:
-				setComponentToRender(<Home />)
-				break;
-
-			case PagesEnum.LIBRARY:
-				setComponentToRender(<Library />)
-				break;
-			case PagesEnum.TODO:
-				setComponentToRender(<ToDoList />)
-				break;
-
-			default:
-				break;
-		}
-	}, [value])
-
-	function changeLanguage(language: string) {
-		i18next.changeLanguage(language, (err, t) => {
-			if (err) return console.log("something went wrong loading", err);
-			t("key"); // -> same as i18next.t
-		});
-	}
+	const [componentToRender, setComponentToRender] = useState<any>();
 	const {
 		token: { colorBgContainer, borderRadiusLG },
 	} = theme.useToken();
@@ -62,6 +32,36 @@ const App = () => {
 			key: "1",
 		},
 	];
+
+	useEffect(() => {
+		switch (value) {
+			case PagesEnum.DIY:
+				setComponentToRender(<DIY />);
+				break;
+			case PagesEnum.HOME:
+				setComponentToRender(<Home />);
+				break;
+			case PagesEnum.LIBRARY:
+				setComponentToRender(<Library />);
+				break;
+			case PagesEnum.TODO:
+				setComponentToRender(<ToDoList />);
+				break;
+			case PagesEnum.CALENDAR:
+				setComponentToRender(<CalendarPage />);
+				break;
+
+			default:
+				break;
+		}
+	}, [value]);
+
+	function changeLanguage(language: string) {
+		i18next.changeLanguage(language, (err, t) => {
+			if (err) return console.log("something went wrong loading", err);
+			t("key"); // -> same as i18next.t
+		});
+	}
 	return (
 		<Layout>
 			<SideMenu />
@@ -78,7 +78,7 @@ const App = () => {
 									height: 64,
 								}}
 							>
-								{t("language.change")}
+								<Text className="button-text">{t("language.change")}</Text>
 								<DownOutlined />
 							</Button>
 						</Dropdown>
@@ -98,6 +98,6 @@ const App = () => {
 			</Layout>
 		</Layout>
 	);
-}
+};
 
 export default App;
