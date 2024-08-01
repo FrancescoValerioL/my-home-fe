@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import i18next from "i18next";
 import {
 	UnorderedListOutlined,
 	MenuFoldOutlined,
@@ -7,6 +6,7 @@ import {
 	HomeOutlined,
 	ScissorOutlined,
 	BookOutlined,
+	CalendarOutlined
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Flex, Menu } from "antd";
@@ -14,21 +14,32 @@ import { useTranslation } from "react-i18next";
 import Sider from "antd/es/layout/Sider";
 import logo from "../assets/logo.png";
 import { Image } from "antd";
-import { Link, Outlet } from "react-router-dom";
+import { useMyContext } from "../services/MyProvider";
+import Home from "../pages/Home";
+import PagesEnum from "../services/PagesEnum";
+type MenuItem = Required<MenuProps>["items"][number];
 
-const SideMenu = (props: any) => {
+const SideMenu = () => {
 	const [collapsed, setCollapsed] = useState(true);
-	const { t, i18n } = useTranslation();
-	function changeLanguage(language: string) {
-		i18next.changeLanguage(language, (err, t) => {
-			if (err) return console.log("something went wrong loading", err);
-			t("key"); // -> same as i18next.t
-		});
-	}
+	const { t } = useTranslation();
+	const { setValue } = useMyContext();
+
+	const updateValue = (page: PagesEnum) => {
+		setValue(page);
+	};
+	const items: MenuItem[] = [
+		{ key: "0", icon: <HomeOutlined />, label: <a onClick={() => updateValue(PagesEnum.HOME)}>Home</a> },
+		{ key: "1", icon: <UnorderedListOutlined />, label: <a onClick={() => updateValue(PagesEnum.TODO)}>ToDo List</a> },
+		{ key: "2", icon: <ScissorOutlined />, label: <a onClick={() => updateValue(PagesEnum.DIY)}>{t("sideMenu.diy")}</a> },
+		{ key: "3", icon: <BookOutlined />, label: <a onClick={() => updateValue(PagesEnum.LIBRARY)}>{t("sideMenu.library")}</a> },
+		{ key: "4", icon: <CalendarOutlined />, label: <a onClick={() => updateValue(PagesEnum.CALENDAR)}>{t("sideMenu.calendar")}</a> },
+	];
 	const boxStyle: React.CSSProperties = {
 		width: "100%",
 		height: 64,
 	};
+
+
 
 	return (
 		<Sider width={250} trigger={null} theme="light" collapsible collapsed={collapsed}>
@@ -45,7 +56,7 @@ const SideMenu = (props: any) => {
 					}}
 				/>
 			</Flex>
-			<Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} items={props.items} />
+			<Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} items={items} />
 		</Sider>
 	);
 };

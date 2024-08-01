@@ -4,11 +4,14 @@ import "./index.scss";
 import App from "./App";
 import "./assets/i18n";
 import reportWebVitals from "./reportWebVitals";
+import { MyProvider } from "./services/MyProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
 	<React.StrictMode>
-		<App />
+		<MyProvider>
+			<App />
+		</MyProvider>
 	</React.StrictMode>
 );
 

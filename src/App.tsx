@@ -1,54 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
-import { Button, Dropdown, Flex, Layout, MenuProps, Space, theme } from "antd";
+import { Button, Dropdown, Flex, Layout, MenuProps, theme } from "antd";
 import {
 	DownOutlined,
 	TranslationOutlined,
-	UnorderedListOutlined,
-	MenuFoldOutlined,
-	MenuUnfoldOutlined,
-	HomeOutlined,
-	ScissorOutlined,
-	BookOutlined,
 } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import SideMenu from "./components/SideMenu";
 import { Content, Header } from "antd/es/layout/layout";
 import i18next from "i18next";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import ToDoList from "./pages/ToDoList";
-import Library from "./pages/Library";
+import { useMyContext } from "./services/MyProvider";
+import PagesEnum from "./services/PagesEnum";
 import DIY from "./pages/DIY";
-type MenuItem = Required<MenuProps>["items"][number];
+import Home from "./pages/Home";
+import Library from "./pages/Library";
+import ToDoList from "./pages/ToDoList";
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Home />,
-	},
-	{
-		path: "/todo",
-		element: <ToDoList />,
-	},
-	{
-		path: "/library",
-		element: <Library />,
-	},
-	{
-		path: "/diy",
-		element: <DIY />,
-	},
-]);
 
-function App() {
+const App = () => {
 	const { t, i18n } = useTranslation();
-	const sideItems: MenuItem[] = [
-		/* { key: "0", icon: <HomeOutlined />, label: <Link to="/library">Home</Link> },
-		{ key: "1", icon: <UnorderedListOutlined />, label: "To Do List" },*/
-		{ key: "2", icon: <ScissorOutlined />, label: t("sideMenu.diy") },
-		{ key: "3", icon: <BookOutlined />, label: t("sideMenu.library") },
-	];
+	const { value } = useMyContext();
+	const [componentToRender, setComponentToRender] = useState<any>()
+
+	useEffect(() => {
+		switch (value) {
+			case PagesEnum.DIY:
+				setComponentToRender(<DIY />)
+				break;
+			case PagesEnum.HOME:
+				setComponentToRender(<Home />)
+				break;
+
+			case PagesEnum.LIBRARY:
+				setComponentToRender(<Library />)
+				break;
+			case PagesEnum.TODO:
+				setComponentToRender(<ToDoList />)
+				break;
+
+			default:
+				break;
+		}
+	}, [value])
 
 	function changeLanguage(language: string) {
 		i18next.changeLanguage(language, (err, t) => {
@@ -71,7 +64,7 @@ function App() {
 	];
 	return (
 		<Layout>
-			<SideMenu items={sideItems} />
+			<SideMenu />
 			<Layout>
 				<Header style={{ paddingRight: 50, background: colorBgContainer }}>
 					<Flex justify="flex-end" align="center">
@@ -100,7 +93,7 @@ function App() {
 						borderRadius: borderRadiusLG,
 					}}
 				>
-					<RouterProvider router={router} />
+					{componentToRender}
 				</Content>
 			</Layout>
 		</Layout>

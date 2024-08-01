@@ -18,7 +18,8 @@ const resources = {
       },
       "sideMenu": {
         "diy": "DIY projects",
-        "library": "Library"
+        "library": "Library",
+        "calendar": "Calendar"
       }
       
     }
@@ -36,7 +37,8 @@ const resources = {
       },
       "sideMenu": {
         "diy": "Progetti fai da te",
-        "library": "Biblioteca"
+        "library": "Biblioteca",
+        "calendar": "Calendario"
       }
       
     }
