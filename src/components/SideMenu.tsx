@@ -16,9 +16,7 @@ import logo from "../assets/logo.png";
 import { Image } from "antd";
 import { Link, Outlet } from "react-router-dom";
 
-type MenuItem = Required<MenuProps>["items"][number];
-
-const SideMenu = () => {
+const SideMenu = (props: any) => {
 	const [collapsed, setCollapsed] = useState(true);
 	const { t, i18n } = useTranslation();
 	function changeLanguage(language: string) {
@@ -31,13 +29,6 @@ const SideMenu = () => {
 		width: "100%",
 		height: 64,
 	};
-
-	const items: MenuItem[] = [
-		{ key: "0", icon: <HomeOutlined />, label: <Link to="/library">Home</Link> },
-		{ key: "1", icon: <UnorderedListOutlined />, label: "To Do List" },
-		{ key: "2", icon: <ScissorOutlined />, label: t("sideMenu.diy") },
-		{ key: "3", icon: <BookOutlined />, label: t("sideMenu.library") },
-	];
 
 	return (
 		<Sider width={250} trigger={null} theme="light" collapsible collapsed={collapsed}>
@@ -54,7 +45,7 @@ const SideMenu = () => {
 					}}
 				/>
 			</Flex>
-			<Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} items={items} />
+			<Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} items={props.items} />
 		</Sider>
 	);
 };
