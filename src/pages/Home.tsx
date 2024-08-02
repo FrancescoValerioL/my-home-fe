@@ -41,6 +41,13 @@ const Home: React.FC = () => {
 			>
 				<Image preview={false} width={250} src={calendar} />
 			</Card>
+			<Card
+				title={t("title.finance")}
+				style={{ width: 300, cursor: "pointer" }}
+				onClick={() => updateValue(PagesEnum.FINANCE)}
+			>
+				<Image preview={false} width={250} src={calendar} />
+			</Card>
 		</Flex>
 	);
 };

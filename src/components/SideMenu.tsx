@@ -8,6 +8,7 @@ import {
 	ScissorOutlined,
 	BookOutlined,
 	CalendarOutlined,
+	BankOutlined
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Flex, Menu } from "antd";
@@ -44,6 +45,11 @@ const SideMenu = () => {
 			key: "4",
 			icon: <CalendarOutlined />,
 			label: <a onClick={() => updateValue(PagesEnum.CALENDAR)}>{t("sideMenu.calendar")}</a>,
+		},
+		{
+			key: "5",
+			icon: <BankOutlined />,
+			label: <a onClick={() => updateValue(PagesEnum.FINANCE)}>{t("sideMenu.finance")}</a>,
 		},
 	];
 	const boxStyle: React.CSSProperties = {

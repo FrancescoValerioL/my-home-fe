@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import ToDoList from "./pages/ToDoList";
 import CalendarPage from "./pages/CalendarPage";
+import Finance from "./pages/Finance";
 
 const App = () => {
 	const { Text, Title } = Typography;
@@ -25,11 +26,11 @@ const App = () => {
 	} = theme.useToken();
 	const items: MenuProps["items"] = [
 		{
-			label: <a onClick={() => changeLanguage("it")}>{t("language.it")}</a>,
+			label: <a onClick={() => changeLanguage("en")}>{t("language.en")}</a>,
 			key: "0",
 		},
 		{
-			label: <a onClick={() => changeLanguage("en")}>{t("language.en")}</a>,
+			label: <a onClick={() => changeLanguage("it")}>{t("language.it")}</a>,
 			key: "1",
 		},
 	];
@@ -55,6 +56,10 @@ const App = () => {
 			case PagesEnum.CALENDAR:
 				setComponentToRender(<CalendarPage />);
 				setHeaderTitle("title.calendar");
+				break;
+			case PagesEnum.FINANCE:
+				setComponentToRender(<Finance />);
+				setHeaderTitle("title.finance");
 				break;
 
 			default:

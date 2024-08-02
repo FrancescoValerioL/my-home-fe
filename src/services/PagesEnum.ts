@@ -3,6 +3,7 @@ enum PagesEnum {
     DIY = 'DIY',
     LIBRARY = 'LIBRARY',
     CALENDAR = 'CALENDAR',
-    TODO = 'TODO'
+    TODO = 'TODO',
+    FINANCE = 'FINANCE'
 }
 export default PagesEnum
