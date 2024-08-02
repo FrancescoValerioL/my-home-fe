@@ -7,10 +7,6 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "welcome": {
-        "ciao": "Hello",
-        "message": "Welcome to React"
-      },
       "language":{
         "change": "Change language",
         "it": "Italian",
@@ -29,16 +25,20 @@ const resources = {
         "library": "Library",
         "todo": "ToDo List",
         "finance": "Finance"
+      },
+      "finance": {
+        "budget": "Budget",
+        "spent": "Spent",
+        "left": "Left to spend",
+        "budget_category": "Budget by Category",
+        "budget_spent": "Budget vs Spent",
+        "budget_spent_category": "Budget vs Spent by Category"
       }
       
     }
   },
   it: {
     translation: {
-      "welcome": {
-        "ciao": "Ciao",
-        "message": "Benvenuto in React"
-      },
       "language":{
         "change": "Cambia lingua",
         "it": "Italiano",
@@ -57,6 +57,14 @@ const resources = {
         "library": "Biblioteca",
         "todo": "ToDo List",
         "finance": "Finanze"
+      },
+      "finance": {
+        "budget": "Budget",
+        "spent": "Spese",
+        "left": "Disponibili",
+        "budget_category": "Budget per Categoria",
+        "budget_spent": "Budget vs Spese",
+        "budget_spent_category": "Budget vs Spese per Categoria"
       }
       
     }

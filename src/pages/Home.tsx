@@ -1,10 +1,10 @@
 import { Card, Flex, Image } from "antd";
 import React from "react";
-import diy from "../assets/images/diy.jpg";
-import calendar from "../assets/images/calendar.jpg";
-import library from "../assets/images/library.jpg";
-import todo from "../assets/images/todo.jpg";
-import finance from "../assets/images/finance.jpg"
+import diy from "../assets/images/diy2.svg";
+import calendar from "../assets/images/calendar2.svg";
+import library from "../assets/images/library2.svg";
+import todo from "../assets/images/todo2.svg";
+import finance from "../assets/images/finance2.svg";
 import { useTranslation } from "react-i18next";
 import { useMyContext } from "../services/MyProvider";
 import PagesEnum from "../services/PagesEnum";
