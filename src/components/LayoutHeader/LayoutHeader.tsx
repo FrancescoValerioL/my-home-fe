@@ -1,9 +1,11 @@
-import { Flex, Dropdown, Button, Typography, MenuProps } from "antd";
-import Title from "antd/es/skeleton/Title";
+import { Flex, Dropdown, Button, Typography, MenuProps, Space } from "antd";
+import { Image } from "antd";
 import { changeLanguage, t } from "i18next";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DownOutlined, TranslationOutlined } from "@ant-design/icons";
+import en from "../../assets/images/flags/en.svg";
+import it from "../../assets/images/flags/it.svg";
 
 const LayoutHeader = (props: HeaderProps) => {
 	const { Text, Title } = Typography;
@@ -16,11 +18,21 @@ const LayoutHeader = (props: HeaderProps) => {
 
 	const items: MenuProps["items"] = [
 		{
-			label: <a onClick={() => changeLanguage("en")}>{t("language.en")}</a>,
+			label: (
+				<Space onClick={() => changeLanguage("en")}>
+					<Image preview={false} width={16} src={en} />
+					{t("language.en")}
+				</Space>
+			),
 			key: "0",
 		},
 		{
-			label: <a onClick={() => changeLanguage("it")}>{t("language.it")}</a>,
+			label: (
+				<Space onClick={() => changeLanguage("it")}>
+					<Image preview={false} width={16} src={it} />
+					{t("language.it")}
+				</Space>
+			),
 			key: "1",
 		},
 	];

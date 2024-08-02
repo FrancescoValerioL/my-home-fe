@@ -1,4 +1,6 @@
+import DIYCard from "../components/DIYCard/DIYCard";
+
 const DIY = () => {
-	return <h1>DIY</h1>;
+	return <DIYCard />;
 };
 export default DIY;
