@@ -81,7 +81,9 @@ const App = () => {
 			<Layout>
 				<Header style={{ paddingRight: 50, background: colorBgContainer }}>
 					<Flex justify="space-between" align="center">
-						<Title style={{ margin: "auto" }}>{t(headerTitle)}</Title>
+						<Title level={2} style={{ margin: "auto" }} type="secondary">
+							{t(headerTitle)}
+						</Title>
 						<Dropdown menu={{ items }} trigger={["click"]}>
 							<Button
 								type="text"
