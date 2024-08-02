@@ -61,7 +61,8 @@ const Finance = () => {
 			chart: {
 				id: "pie-budget",
 			},
-			labels: ["Budget", "Spent"],
+			colors: ["#caffbf", "#a0c4ff"],
+			labels: [t("finance.budget"), t("finance.spent")],
 		},
 		series: [budget, spent],
 	};
@@ -71,9 +72,18 @@ const Finance = () => {
 			chart: {
 				id: "pie-category",
 			},
-			labels: ["Food", "Cleaning", "Car", "Bills"],
+			colors: ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"],
+			labels: [
+				t("finance.categories.food"),
+				t("finance.categories.bills"),
+				t("finance.categories.cleaning"),
+				t("finance.categories.entertainment"),
+				t("finance.categories.rent"),
+				t("finance.categories.loans"),
+				t("finance.categories.subscriptions"),
+			],
 		},
-		series: [100, 200, 50, 500],
+		series: [150, 400, 350, 150, 200, 138, 96],
 	};
 	return (
 		<>

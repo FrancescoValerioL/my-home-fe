@@ -34,7 +34,16 @@ const resources = {
         "left": "Left to spend",
         "budget_category": "Budget by Category",
         "budget_spent": "Budget vs Spent",
-        "budget_spent_category": "Budget vs Spent by Category"
+        "budget_spent_category": "Budget vs Spent by Category",
+        "categories": {
+          "food": "Food",
+          "bills": "Bills",
+          "cleaning": "Cleaning",
+          "entertainment": "Entertainment",
+          "rent": "Rent",
+          "loans": "Loans",
+          "subscriptions": "Subscriptions"
+        }
       }
       
     }
@@ -68,7 +77,16 @@ const resources = {
         "left": "Disponibili",
         "budget_category": "Budget per Categoria",
         "budget_spent": "Budget vs Spese",
-        "budget_spent_category": "Budget vs Spese per Categoria"
+        "budget_spent_category": "Budget vs Spese per Categoria",
+        "categories": {
+          "food": "Cibo",
+          "bills": "Bollette",
+          "cleaning": "Pulizia",
+          "entertainment": "Svago",
+          "rent": "Affitto",
+          "loans": "Prestiti",
+          "subscriptions": "Abbonamenti"
+        }
       }
       
     }

@@ -17,7 +17,6 @@
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.0.0",
-    "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
     "sass": "^1.77.8",
     "typescript": "^4.9.5",
