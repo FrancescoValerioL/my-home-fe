@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SideMenu.scss";
 import {
 	UnorderedListOutlined,
 	MenuFoldOutlined,
@@ -6,7 +7,7 @@ import {
 	HomeOutlined,
 	ScissorOutlined,
 	BookOutlined,
-	CalendarOutlined
+	CalendarOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Flex, Menu } from "antd";
@@ -15,7 +16,6 @@ import Sider from "antd/es/layout/Sider";
 import logo from "../assets/logo.png";
 import { Image } from "antd";
 import { useMyContext } from "../services/MyProvider";
-import Home from "../pages/Home";
 import PagesEnum from "../services/PagesEnum";
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -30,16 +30,26 @@ const SideMenu = () => {
 	const items: MenuItem[] = [
 		{ key: "0", icon: <HomeOutlined />, label: <a onClick={() => updateValue(PagesEnum.HOME)}>Home</a> },
 		{ key: "1", icon: <UnorderedListOutlined />, label: <a onClick={() => updateValue(PagesEnum.TODO)}>ToDo List</a> },
-		{ key: "2", icon: <ScissorOutlined />, label: <a onClick={() => updateValue(PagesEnum.DIY)}>{t("sideMenu.diy")}</a> },
-		{ key: "3", icon: <BookOutlined />, label: <a onClick={() => updateValue(PagesEnum.LIBRARY)}>{t("sideMenu.library")}</a> },
-		{ key: "4", icon: <CalendarOutlined />, label: <a onClick={() => updateValue(PagesEnum.CALENDAR)}>{t("sideMenu.calendar")}</a> },
+		{
+			key: "2",
+			icon: <ScissorOutlined />,
+			label: <a onClick={() => updateValue(PagesEnum.DIY)}>{t("sideMenu.diy")}</a>,
+		},
+		{
+			key: "3",
+			icon: <BookOutlined />,
+			label: <a onClick={() => updateValue(PagesEnum.LIBRARY)}>{t("sideMenu.library")}</a>,
+		},
+		{
+			key: "4",
+			icon: <CalendarOutlined />,
+			label: <a onClick={() => updateValue(PagesEnum.CALENDAR)}>{t("sideMenu.calendar")}</a>,
+		},
 	];
 	const boxStyle: React.CSSProperties = {
 		width: "100%",
 		height: 64,
 	};
-
-
 
 	return (
 		<Sider width={250} trigger={null} theme="light" collapsible collapsed={collapsed}>

@@ -51,7 +51,7 @@ const resources = {
         "home": "Home",
         "diy": "Progetti fai da te",
         "calendar": "Calendario",
-        "library": "Libreria",
+        "library": "Biblioteca",
         "todo": "ToDo List"
       }
       
