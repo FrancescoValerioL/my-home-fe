@@ -44,6 +44,21 @@ const resources = {
           "loans": "Loans",
           "subscriptions": "Subscriptions"
         }
+      },
+      "library": {
+        "columns": {
+          "id": "ID",
+          "title": "Title",
+          "author": "Author",
+          "comic": "Comic",
+          "volumes": "Volumes",
+          "pages": "Pages",
+          "year": "Year",
+          "desc": "Description",
+          "read": "Read",
+          "packed": "Packed",
+          "actions": "Actions"
+        }
       }
       
     }
@@ -86,6 +101,21 @@ const resources = {
           "rent": "Affitto",
           "loans": "Prestiti",
           "subscriptions": "Abbonamenti"
+        }
+      },
+      "library": {
+        "columns": {
+          "id": "ID",
+          "title": "Titolo",
+          "author": "Autore",
+          "comic": "Fumetto",
+          "volumes": "Volumi",
+          "pages": "Pagine",
+          "year": "Anno",
+          "desc": "Descrizione",
+          "read": "Letto",
+          "packed": "Inscatolato",
+          "actions": "Azioni"
         }
       }
       
