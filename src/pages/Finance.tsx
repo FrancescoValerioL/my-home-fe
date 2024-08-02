@@ -23,26 +23,33 @@ const Finance = () => {
 			spent: 150,
 			balance: 170,
 		},
+		{
+			key: "3",
+			category: "Car",
+			budget: 320,
+			spent: 350,
+			balance: -20,
+		},
 	];
 
 	const columns = [
 		{
-			title: "Category",
+			title: t("finance.category"),
 			dataIndex: "category",
 			key: "category",
 		},
 		{
-			title: "Budget",
+			title: t("finance.budget"),
 			dataIndex: "budget",
 			key: "budget",
 		},
 		{
-			title: "Spent",
+			title: t("finance.spent"),
 			dataIndex: "spent",
 			key: "spent",
 		},
 		{
-			title: "Balance",
+			title: t("finance.balance"),
 			dataIndex: "balance",
 			key: "balance",
 			render: (balance: number) => <Text type={balance > 0 ? "success" : "danger"}>{balance}</Text>,
@@ -110,7 +117,7 @@ const Finance = () => {
 				<Col span={24} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
 						<Text type="secondary">{t("finance.budget_spent_category")}</Text>
-						<Table columns={columns} dataSource={dataSource} />
+						<Table columns={columns} dataSource={dataSource} size="large" />
 					</Space>
 				</Col>
 			</Row>

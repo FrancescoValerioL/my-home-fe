@@ -29,6 +29,8 @@ const resources = {
       "finance": {
         "budget": "Budget",
         "spent": "Spent",
+        "category": "Category",
+        "balance": "Blance",
         "left": "Left to spend",
         "budget_category": "Budget by Category",
         "budget_spent": "Budget vs Spent",
@@ -61,6 +63,8 @@ const resources = {
       "finance": {
         "budget": "Budget",
         "spent": "Spese",
+        "category": "Categoria",
+        "balance": "Bilancio",
         "left": "Disponibili",
         "budget_category": "Budget per Categoria",
         "budget_spent": "Budget vs Spese",
