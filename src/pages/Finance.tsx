@@ -1,4 +1,6 @@
 import { Row, Col, Typography, Table, Space } from "antd";
+import ReactApexChart from "react-apexcharts";
+import Chart from "react-apexcharts";
 import { useTranslation } from "react-i18next";
 const { Text, Title } = Typography;
 
@@ -9,35 +11,63 @@ const Finance = () => {
 	const dataSource = [
 		{
 			key: "1",
-			name: "Mike",
-			age: 32,
-			address: "10 Downing Street",
+			category: "Food",
+			budget: 320,
+			spent: 150,
+			balance: 170,
 		},
 		{
 			key: "2",
-			name: "John",
-			age: 42,
-			address: "10 Downing Street",
+			category: "Bills",
+			budget: 320,
+			spent: 150,
+			balance: 170,
 		},
 	];
 
 	const columns = [
 		{
-			title: "Name",
-			dataIndex: "name",
-			key: "name",
+			title: "Category",
+			dataIndex: "category",
+			key: "category",
 		},
 		{
-			title: "Age",
-			dataIndex: "age",
-			key: "age",
+			title: "Budget",
+			dataIndex: "budget",
+			key: "budget",
 		},
 		{
-			title: "Address",
-			dataIndex: "address",
-			key: "address",
+			title: "Spent",
+			dataIndex: "spent",
+			key: "spent",
+		},
+		{
+			title: "Balance",
+			dataIndex: "balance",
+			key: "balance",
+			render: (balance: number) => <Text type={balance > 0 ? "success" : "danger"}>{balance}</Text>,
 		},
 	];
+
+	const state = {
+		options: {
+			chart: {
+				id: "pie-budget",
+			},
+			labels: ["Budget", "Spent"],
+		},
+		series: [budget, spent],
+	};
+
+	const pieCategory = {
+		options: {
+			chart: {
+				id: "pie-category",
+			},
+			labels: ["Food", "Cleaning", "Car", "Bills"],
+		},
+		series: [100, 200, 50, 500],
+	};
 	return (
 		<>
 			<Row justify="center">
@@ -64,21 +94,24 @@ const Finance = () => {
 			</Row>
 			<Row>
 				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
-					<Text type="secondary">{t("finance.budget_category")}</Text>
-				</Col>
-				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
-					<Text type="secondary">{t("finance.budget_spent")}</Text>
-				</Col>
-			</Row>
-			<Row>
-				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
-						<Text type="secondary">{t("finance.budget_spent_category")}</Text>
-						<Table dataSource={dataSource} columns={columns} />
+						<Text type="secondary">{t("finance.budget_category")}</Text>
+						<Chart options={pieCategory.options} series={pieCategory.series} type="pie" width="500" />
 					</Space>
 				</Col>
 				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
-					<Text type="secondary">{t("finance.spent")}</Text>
+					<Space direction="vertical">
+						<Text type="secondary">{t("finance.budget_spent")}</Text>
+						<Chart options={state.options} series={state.series} type="pie" width="500" />
+					</Space>
+				</Col>
+			</Row>
+			<Row>
+				<Col span={24} style={{ justifyContent: "center", display: "flex" }}>
+					<Space direction="vertical">
+						<Text type="secondary">{t("finance.budget_spent_category")}</Text>
+						<Table columns={columns} dataSource={dataSource} />
+					</Space>
 				</Col>
 			</Row>
 		</>
