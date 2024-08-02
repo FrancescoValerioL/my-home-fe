@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import { Button, Dropdown, Flex, Layout, MenuProps, theme, Typography } from "antd";
+import { Button, Col, Dropdown, Flex, Layout, MenuProps, Row, theme, Typography } from "antd";
 import { DownOutlined, TranslationOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import SideMenu from "./components/SideMenu";
@@ -15,10 +15,11 @@ import ToDoList from "./pages/ToDoList";
 import CalendarPage from "./pages/CalendarPage";
 
 const App = () => {
-	const { Text } = Typography;
+	const { Text, Title } = Typography;
 	const { t, i18n } = useTranslation();
 	const { value } = useMyContext();
 	const [componentToRender, setComponentToRender] = useState<any>();
+	const [headerTitle, setHeaderTitle] = useState<string>("Home");
 	const {
 		token: { colorBgContainer, borderRadiusLG },
 	} = theme.useToken();
@@ -37,18 +38,23 @@ const App = () => {
 		switch (value) {
 			case PagesEnum.DIY:
 				setComponentToRender(<DIY />);
+				setHeaderTitle("title.diy");
 				break;
 			case PagesEnum.HOME:
 				setComponentToRender(<Home />);
+				setHeaderTitle("title.home");
 				break;
 			case PagesEnum.LIBRARY:
 				setComponentToRender(<Library />);
+				setHeaderTitle("title.library");
 				break;
 			case PagesEnum.TODO:
 				setComponentToRender(<ToDoList />);
+				setHeaderTitle("title.todo");
 				break;
 			case PagesEnum.CALENDAR:
 				setComponentToRender(<CalendarPage />);
+				setHeaderTitle("title.calendar");
 				break;
 
 			default:
@@ -59,15 +65,17 @@ const App = () => {
 	function changeLanguage(language: string) {
 		i18next.changeLanguage(language, (err, t) => {
 			if (err) return console.log("something went wrong loading", err);
-			t("key"); // -> same as i18next.t
+			t("key");
 		});
+		setHeaderTitle(headerTitle);
 	}
 	return (
 		<Layout>
 			<SideMenu />
 			<Layout>
 				<Header style={{ paddingRight: 50, background: colorBgContainer }}>
-					<Flex justify="flex-end" align="center">
+					<Flex justify="space-between" align="center">
+						<Title style={{ margin: "auto" }}>{t(headerTitle)}</Title>
 						<Dropdown menu={{ items }} trigger={["click"]}>
 							<Button
 								type="text"
@@ -76,6 +84,7 @@ const App = () => {
 								style={{
 									fontSize: "16px",
 									height: 64,
+									maxWidth: 160,
 								}}
 							>
 								<Text className="button-text">{t("language.change")}</Text>

@@ -20,6 +20,13 @@ const resources = {
         "diy": "DIY projects",
         "library": "Library",
         "calendar": "Calendar"
+      },
+      "title": {
+        "home": "Home",
+        "diy": "DIY Projects",
+        "calendar": "Calendar",
+        "library": "Library",
+        "todo": "ToDo List"
       }
       
     }
@@ -39,6 +46,13 @@ const resources = {
         "diy": "Progetti fai da te",
         "library": "Biblioteca",
         "calendar": "Calendario"
+      },
+      "title": {
+        "home": "Home",
+        "diy": "Progetti fai da te",
+        "calendar": "Calendario",
+        "library": "Libreria",
+        "todo": "ToDo List"
       }
       
     }
