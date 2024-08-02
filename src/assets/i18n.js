@@ -59,6 +59,13 @@ const resources = {
           "packed": "Packed",
           "actions": "Actions"
         }
+      },
+      "diy": {
+        "material": "Material",
+        "qty": "Quantity",
+        "obtained": "Obtained",
+        "started" : "Started",
+        "completed": "Completed"
       }
       
     }
@@ -117,6 +124,13 @@ const resources = {
           "packed": "Inscatolato",
           "actions": "Azioni"
         }
+      },
+      "diy": {
+        "material": "Materiale",
+        "qty": "Quantità",
+        "obtained": "Ottenuto",
+        "started" : "Iniziato",
+        "completed": "Completato"
       }
       
     }
