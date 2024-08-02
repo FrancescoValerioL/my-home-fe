@@ -4,6 +4,7 @@ import diy from "../assets/images/diy.jpg";
 import calendar from "../assets/images/calendar.jpg";
 import library from "../assets/images/library.jpg";
 import todo from "../assets/images/todo.jpg";
+import finance from "../assets/images/finance.jpg"
 import { useTranslation } from "react-i18next";
 import { useMyContext } from "../services/MyProvider";
 import PagesEnum from "../services/PagesEnum";
@@ -46,7 +47,7 @@ const Home: React.FC = () => {
 				style={{ width: 300, cursor: "pointer" }}
 				onClick={() => updateValue(PagesEnum.FINANCE)}
 			>
-				<Image preview={false} width={250} src={calendar} />
+				<Image preview={false} width={250} src={finance} />
 			</Card>
 		</Flex>
 	);

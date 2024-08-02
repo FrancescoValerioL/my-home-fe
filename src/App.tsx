@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import "./App.scss";
-import { Button, Col, Dropdown, Flex, Layout, MenuProps, Row, theme, Typography } from "antd";
+import { Button, Dropdown, Flex, Layout, MenuProps, theme, Typography } from "antd";
 import { DownOutlined, TranslationOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import SideMenu from "./components/SideMenu";
