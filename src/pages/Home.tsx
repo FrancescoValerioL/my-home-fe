@@ -8,7 +8,7 @@ import finance from "../assets/images/finance.jpg"
 import { useTranslation } from "react-i18next";
 import { useMyContext } from "../services/MyProvider";
 import PagesEnum from "../services/PagesEnum";
-
+//gni
 const Home: React.FC = () => {
 	const { t, i18n } = useTranslation();
 	const { setValue } = useMyContext();
