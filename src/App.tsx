@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from "react";
 import "./App.scss";
-import { Button, Dropdown, Flex, Layout, MenuProps, theme, Typography } from "antd";
-import { DownOutlined, TranslationOutlined } from "@ant-design/icons";
+import { Layout, theme, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import SideMenu from "./components/SideMenu";
 import { Content, Header } from "antd/es/layout/layout";
@@ -15,26 +14,15 @@ import Library from "./pages/Library";
 import ToDoList from "./pages/ToDoList";
 import CalendarPage from "./pages/CalendarPage";
 import Finance from "./pages/Finance";
+import LayoutHeader from "./components/LayoutHeader/LayoutHeader";
 
 const App = () => {
-	const { Text, Title } = Typography;
-	const { t, i18n } = useTranslation();
 	const { value } = useMyContext();
 	const [componentToRender, setComponentToRender] = useState<any>();
 	const [headerTitle, setHeaderTitle] = useState<string>("Home");
 	const {
 		token: { colorBgContainer, borderRadiusLG },
 	} = theme.useToken();
-	const items: MenuProps["items"] = [
-		{
-			label: <a onClick={() => changeLanguage("en")}>{t("language.en")}</a>,
-			key: "0",
-		},
-		{
-			label: <a onClick={() => changeLanguage("it")}>{t("language.it")}</a>,
-			key: "1",
-		},
-	];
 
 	useEffect(() => {
 		switch (value) {
@@ -67,39 +55,12 @@ const App = () => {
 				break;
 		}
 	}, [value]);
-
-	function changeLanguage(language: string) {
-		i18next.changeLanguage(language, (err, t) => {
-			if (err) return console.log("something went wrong loading", err);
-			t("key");
-		});
-		setHeaderTitle(headerTitle);
-	}
 	return (
 		<Layout>
 			<SideMenu />
 			<Layout>
 				<Header style={{ paddingRight: 50, background: colorBgContainer }}>
-					<Flex justify="space-between" align="center">
-						<Title level={2} style={{ margin: "auto" }} type="secondary">
-							{t(headerTitle)}
-						</Title>
-						<Dropdown menu={{ items }} trigger={["click"]}>
-							<Button
-								type="text"
-								icon={<TranslationOutlined />}
-								onClick={(e) => e.preventDefault()}
-								style={{
-									fontSize: "16px",
-									height: 64,
-									maxWidth: 160,
-								}}
-							>
-								<Text className="button-text">{t("language.change")}</Text>
-								<DownOutlined />
-							</Button>
-						</Dropdown>
-					</Flex>
+					<LayoutHeader headerTitle={headerTitle} />
 				</Header>
 				<Content
 					style={{
