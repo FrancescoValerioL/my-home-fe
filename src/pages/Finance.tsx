@@ -138,21 +138,21 @@ const Finance = () => {
 				</Col>
 			</Row>
 			<Row>
-				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
+				<Col lg={12} sm={24} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
 						<Text type="secondary">{t("finance.budget_category")}</Text>
 						<Chart options={pieCategory.options} series={pieCategory.series} type="pie" width="500" />
 					</Space>
 				</Col>
-				<Col span={12} style={{ justifyContent: "center", display: "flex" }}>
+				<Col lg={12} sm={24} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
 						<Text type="secondary">{t("finance.budget_spent")}</Text>
-						<Chart options={state.options} series={state.series} type="pie" width="500" />
+						<Chart className="chart" options={state.options} series={state.series} type="pie" width="500" />
 					</Space>
 				</Col>
 			</Row>
 			<Row>
-				<Col span={24} style={{ justifyContent: "center", display: "flex" }}>
+				<Col lg={24} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
 						<Text type="secondary">{t("finance.budget_spent_category")}</Text>
 						<Table pagination={false} columns={columns} dataSource={dataSource} size="large" scroll={{ y: 250 }} />
