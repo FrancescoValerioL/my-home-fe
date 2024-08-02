@@ -25,10 +25,38 @@ const Finance = () => {
 		},
 		{
 			key: "3",
-			category: "Car",
-			budget: 320,
-			spent: 350,
-			balance: -20,
+			category: "Cleaning",
+			budget: 100,
+			spent: 95,
+			balance: 5,
+		},
+		{
+			key: "4",
+			category: "Entertainment",
+			budget: 100,
+			spent: 95,
+			balance: 5,
+		},
+		{
+			key: "5",
+			category: "Rent",
+			budget: 695,
+			spent: 695,
+			balance: 0,
+		},
+		{
+			key: "6",
+			category: "Loans",
+			budget: 200,
+			spent: 168,
+			balance: 32,
+		},
+		{
+			key: "7",
+			category: "Subscriptions",
+			budget: 100,
+			spent: 95,
+			balance: 5,
 		},
 	];
 
@@ -127,7 +155,7 @@ const Finance = () => {
 				<Col span={24} style={{ justifyContent: "center", display: "flex" }}>
 					<Space direction="vertical">
 						<Text type="secondary">{t("finance.budget_spent_category")}</Text>
-						<Table columns={columns} dataSource={dataSource} size="large" />
+						<Table pagination={false} columns={columns} dataSource={dataSource} size="large" scroll={{ y: 250 }} />
 					</Space>
 				</Col>
 			</Row>
