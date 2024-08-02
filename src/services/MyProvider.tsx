@@ -14,7 +14,7 @@ const MyContext = createContext<MyContextPages | undefined>(undefined);
 
 // Crea il provider del contesto
 export const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-	const [value, setValue] = useState<PagesEnum>(PagesEnum.DIY);
+	const [value, setValue] = useState<PagesEnum>(PagesEnum.HOME);
 
 	return <MyContext.Provider value={{ value, setValue }}>{children}</MyContext.Provider>;
 };
