@@ -1,6 +1,24 @@
-import { Button, Flex, Input, InputRef, PaginationProps, Space, Table, TableColumnType, Typography } from "antd";
+import {
+	Button,
+	Flex,
+	FloatButton,
+	Input,
+	InputRef,
+	PaginationProps,
+	Space,
+	Table,
+	TableColumnType,
+	Typography,
+} from "antd";
 import { useTranslation } from "react-i18next";
-import { DeleteOutlined, EditOutlined, CheckOutlined, CloseOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+	DeleteOutlined,
+	EditOutlined,
+	CheckOutlined,
+	CloseOutlined,
+	SearchOutlined,
+	FileAddOutlined,
+} from "@ant-design/icons";
 import Book from "../interfaces/Book";
 import { useRef, useState } from "react";
 import BookTable from "../interfaces/BookTable";
@@ -451,10 +469,11 @@ const Library = () => {
 					showSizeChanger: true,
 					onShowSizeChange: onShowSizeChange,
 				}}
-				scroll={{ y: 750 }}
+				scroll={{ y: 700 }}
 				columns={columns}
 				dataSource={dataSource}
 				size="large"
+				footer={() => <Button onClick={() => console.log("onClick")} icon={<FileAddOutlined />} size="large" />}
 			/>
 		</Flex>
 	);
