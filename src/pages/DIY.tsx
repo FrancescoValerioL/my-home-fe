@@ -5,7 +5,8 @@ import DIYInterface from "../interfaces/DIY";
 const DIY = () => {
 	const cards: DIYInterface[] = [
 		{
-			title: "DIY Test",
+			img: "https://i.pinimg.com/736x/98/32/b5/9832b509b99e3b44ee3e105322318ff8.jpg",
+			title: "Sedia",
 			materials: [
 				{
 					name: "wood",
@@ -18,7 +19,8 @@ const DIY = () => {
 			notes: "CIAO",
 		},
 		{
-			title: "DIY Test 2",
+			img: "https://i.pinimg.com/564x/81/cc/29/81cc2985e55c93e45db82df66c9f6bef.jpg",
+			title: "Scaffale",
 			materials: [
 				{
 					name: "wood",
@@ -31,7 +33,8 @@ const DIY = () => {
 			notes: "CIAO",
 		},
 		{
-			title: "DIY Test 3",
+			img: "https://i.pinimg.com/736x/5f/32/98/5f3298cd45b8461bc964949bec6b90ac.jpg",
+			title: "Coffee Table",
 			materials: [
 				{
 					name: "wood",

@@ -28,7 +28,7 @@ const DIYCard = (props: { card: DIYInterface }) => {
 		props.card.started === true && stepsOk++;
 		props.card.materials.forEach(() => totalSteps++);
 		const tempPercent: number = (stepsOk / totalSteps) * 100;
-		setPercent(+tempPercent.toFixed(2));
+		setPercent(+tempPercent.toFixed(0));
 		console.log(tempPercent);
 	};
 	const twoColors: ProgressProps["strokeColor"] = {
@@ -39,7 +39,7 @@ const DIYCard = (props: { card: DIYInterface }) => {
 	return (
 		<Card
 			style={{ width: 300 }}
-			cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
+			cover={<img alt="example" src={props.card.img} />}
 			actions={[
 				<DIYModal diy={props.card} />,
 				<Text type="danger">
