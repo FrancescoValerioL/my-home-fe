@@ -1,14 +1,14 @@
-import { Row, Col, Typography, Table, Space } from "antd";
-import ReactApexChart from "react-apexcharts";
+import { Row, Col, Typography, Table, Space, Button } from "antd";
+import { DeleteOutlined, EditOutlined, ReloadOutlined } from "@ant-design/icons";
 import Chart from "react-apexcharts";
 import { useTranslation } from "react-i18next";
+import FinanceModal from "../components/FinanceModal/FinanceModal";
+import FinanceData from "../interfaces/FinanceData";
 const { Text, Title } = Typography;
 
 const Finance = () => {
 	const { t, i18n } = useTranslation();
-	const budget: number = 1800;
-	const spent: number = 800;
-	const dataSource = [
+	const dataSource: FinanceData[] = [
 		{
 			key: "1",
 			category: "Food",
@@ -60,6 +60,9 @@ const Finance = () => {
 		},
 	];
 
+	const spent: number = dataSource.reduce((total, item) => total + item.spent, 0);
+	const budget: number = dataSource.reduce((total, item) => total + item.budget, 0);
+
 	const columns = [
 		{
 			title: t("finance.category"),
@@ -81,6 +84,17 @@ const Finance = () => {
 			dataIndex: "balance",
 			key: "balance",
 			render: (balance: number) => <Text type={balance > 0 ? "success" : "danger"}>{balance}</Text>,
+		},
+		{
+			title: t("library.columns.actions"),
+			dataIndex: "key",
+			key: "actions",
+			render: (key: string) => (
+				<Space.Compact>
+					<FinanceModal data={dataSource[dataSource.findIndex((data: FinanceData) => data.key === key)]} />
+					<Button icon={<ReloadOutlined />} danger></Button>
+				</Space.Compact>
+			),
 		},
 	];
 
@@ -111,7 +125,7 @@ const Finance = () => {
 				t("finance.categories.subscriptions"),
 			],
 		},
-		series: [150, 400, 350, 150, 200, 138, 96],
+		series: dataSource.map((item) => item.spent),
 	};
 	return (
 		<>
