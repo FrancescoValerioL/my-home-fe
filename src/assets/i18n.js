@@ -65,7 +65,8 @@ const resources = {
         "qty": "Quantity",
         "obtained": "Obtained",
         "started" : "Started",
-        "completed": "Completed"
+        "completed": "Completed",
+        "new": "Create new"
       }
       
     }
@@ -130,7 +131,8 @@ const resources = {
         "qty": "Quantità",
         "obtained": "Ottenuto",
         "started" : "Iniziato",
-        "completed": "Completato"
+        "completed": "Completato",
+        "new": "Crea nuovo"
       }
       
     }

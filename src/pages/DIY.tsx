@@ -1,8 +1,11 @@
-import { Flex } from "antd";
+import { Card, Flex } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import DIYCard from "../components/DIYCard/DIYCard";
 import DIYInterface from "../interfaces/DIY";
+import { useTranslation } from "react-i18next";
 
 const DIY = () => {
+	const { t, i18n } = useTranslation();
 	const cards: DIYInterface[] = [
 		{
 			img: "https://i.pinimg.com/736x/98/32/b5/9832b509b99e3b44ee3e105322318ff8.jpg",
@@ -59,6 +62,15 @@ const DIY = () => {
 	];
 	return (
 		<Flex justify="space-around">
+			<Card
+				title={t("diy.new")}
+				style={{ width: 300, height: 150, cursor: "pointer" }}
+				onClick={() => console.log("Click")}
+			>
+				<Flex justify="center" align="center">
+					<PlusOutlined style={{ fontSize: 50, color: "grey" }} />
+				</Flex>
+			</Card>
 			{cards.map((card, idx) => (
 				<DIYCard key={idx} card={card} />
 			))}

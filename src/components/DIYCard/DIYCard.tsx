@@ -39,7 +39,7 @@ const DIYCard = (props: { card: DIYInterface }) => {
 	return (
 		<Card
 			style={{ width: 300 }}
-			cover={<img alt="example" src={props.card.img} />}
+			cover={<img alt="example" src={props.card.img && props.card.img} />}
 			actions={[
 				<DIYModal diy={props.card} />,
 				<Text type="danger">
