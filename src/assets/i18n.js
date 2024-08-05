@@ -16,7 +16,8 @@ const resources = {
         "diy": "DIY projects",
         "library": "Library",
         "calendar": "Calendar",
-        "finance": "Finance"
+        "finance": "Finance",
+        "workout": "Workout"
       },
       "title": {
         "home": "Home",
@@ -24,7 +25,8 @@ const resources = {
         "calendar": "Calendar",
         "library": "Library",
         "todo": "ToDo List",
-        "finance": "Finance"
+        "finance": "Finance",
+        "workout": "Workout"
       },
       "finance": {
         "budget": "Budget",
@@ -82,7 +84,8 @@ const resources = {
         "diy": "Progetti fai da te",
         "library": "Biblioteca",
         "calendar": "Calendario",
-        "finance": "Finanze"
+        "finance": "Finanze",
+        "workout": "Allenamento"
       },
       "title": {
         "home": "Home",
@@ -90,7 +93,8 @@ const resources = {
         "calendar": "Calendario",
         "library": "Biblioteca",
         "todo": "ToDo List",
-        "finance": "Finanze"
+        "finance": "Finanze",
+        "workout": "Allenamento"
       },
       "finance": {
         "budget": "Budget",

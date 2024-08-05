@@ -11,7 +11,7 @@ import PagesEnum from "./services/PagesEnum";
 import DIY from "./pages/DIY";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
-import ToDoList from "./pages/ToDoList";
+import Workout from "./pages/Workout";
 import CalendarPage from "./pages/CalendarPage";
 import Finance from "./pages/Finance";
 import LayoutHeader from "./components/LayoutHeader/LayoutHeader";
@@ -38,10 +38,6 @@ const App = () => {
 				setComponentToRender(<Library />);
 				setHeaderTitle("title.library");
 				break;
-			case PagesEnum.TODO:
-				setComponentToRender(<ToDoList />);
-				setHeaderTitle("title.todo");
-				break;
 			case PagesEnum.CALENDAR:
 				setComponentToRender(<CalendarPage />);
 				setHeaderTitle("title.calendar");
@@ -49,6 +45,10 @@ const App = () => {
 			case PagesEnum.FINANCE:
 				setComponentToRender(<Finance />);
 				setHeaderTitle("title.finance");
+				break;
+			case PagesEnum.WORKOUT:
+				setComponentToRender(<Workout />);
+				setHeaderTitle("title.workout");
 				break;
 
 			default:

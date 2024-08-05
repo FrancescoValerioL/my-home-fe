@@ -19,9 +19,9 @@ const Home: React.FC = () => {
 	return (
 		<Flex gap="large" justify="center" wrap align="center">
 			<Card
-				title={t("title.todo")}
+				title={t("title.workout")}
 				style={{ width: 300, cursor: "pointer" }}
-				onClick={() => updateValue(PagesEnum.TODO)}
+				onClick={() => updateValue(PagesEnum.WORKOUT)}
 			>
 				<Image preview={false} width={250} src={todo} />
 			</Card>

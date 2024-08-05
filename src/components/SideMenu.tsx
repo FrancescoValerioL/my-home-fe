@@ -8,7 +8,8 @@ import {
 	ScissorOutlined,
 	BookOutlined,
 	CalendarOutlined,
-	BankOutlined
+	BankOutlined,
+	ScheduleOutlined
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Flex, Menu } from "antd";
@@ -30,7 +31,11 @@ const SideMenu = () => {
 	};
 	const items: MenuItem[] = [
 		{ key: "0", icon: <HomeOutlined />, label: <a onClick={() => updateValue(PagesEnum.HOME)}>Home</a> },
-		{ key: "1", icon: <UnorderedListOutlined />, label: <a onClick={() => updateValue(PagesEnum.TODO)}>ToDo List</a> },
+		{
+			key: "1",
+			icon: <ScheduleOutlined />,
+			label: <a onClick={() => updateValue(PagesEnum.WORKOUT)}>{t("sideMenu.workout")}</a>
+		},
 		{
 			key: "2",
 			icon: <ScissorOutlined />,
@@ -50,7 +55,7 @@ const SideMenu = () => {
 			key: "5",
 			icon: <BankOutlined />,
 			label: <a onClick={() => updateValue(PagesEnum.FINANCE)}>{t("sideMenu.finance")}</a>,
-		},
+		}
 	];
 	const boxStyle: React.CSSProperties = {
 		width: "100%",
